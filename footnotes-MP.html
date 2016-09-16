@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Footnote Solution: One-to-one Footnote References</title>
+    <style>
+        .cite-accessibility-label {
+            border: 0 none !important;
+            clip: rect(1px, 1px, 1px, 1px);
+            height: 1px !important;
+            overflow: hidden;
+            padding: 0 !important;
+            position: absolute !important;
+            width: 1px !important;
+        }
+        
+        ul.references {
+            list-style-type: none;
+        }
+        
+        a:active,
+        a:hover,
+        a:focus {
+            outline: 3px solid #f1ca00;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Accessible Footnote Solution: One-to-one Footnote References</h1>
+
+    <h2>Introduction</h2>
+
+    <p>The purpose of this page is demonstrate an accessible solution for footnote references that have a one-to-one correlation between the footnote reference in the page content and the footnote itself. This concept can be applied to footnotes that are at the bottom of a page, within a page or in a modal dialog.</p>
+
+    <h3>Accessibility Features:</h3>
+
+    <ul>
+        <li><b>Programmatic connection between the footnote reference and the footnote:</b> Selecting, via mouse or keyboard, a footnote reference in the content will move focus to the footnote number at the beginning of the footnote. Selecting, the footnote number will return focus to the footnote reference in the content.</li>
+        <li><b>Screen reader context:</b> CSS is used to add additional content to each link for screen reader users. The footnote reference link is prepended with the word "Footnote". The footnote number link is prepended with the phrase "Return to reference".</li>
+    </ul>
+
+    <p>Concept inspired by Wikipedia with accessibility added.</p>
+
+    <h2>Accessible Footnote Demonstration</h2>
+
+    <div id="para">
+        <p>In 2012, The Walt Disney Company acquired Lucasfilm for $4.06 billion and announced three new Star Wars films; the first film of that trilogy, Star Wars: The Force Awakens, was released on December 18, 2015.<sup class="reference"><a  id="cite_ref-Schou_5-0" href="#cite_note-Schou-5"><span class="cite-accessibility-label">Footnote </span>[5]</a></sup> 20th Century Fox retains the physical distribution rights to the first two Star Wars trilogies, owning permanent rights for the original 1977 film and holding the rights to Episodes I–III, V and VI until May 2020.<sup class="reference"><a id="cite_ref-FOXrights_6-0" href="#cite_note-FOXrights-6"><span class="cite-accessibility-label">Footnote </span>[6]</a></sup> The Walt Disney Studios owns digital distribution rights to all the Star Wars films, excluding A New Hope.<sup class="reference"><a id="cite_ref-DisneyFY13_7-1" href="#cite_note-DisneyFY13-7"><span class="cite-accessibility-label">Footnote </span>[7]</a></sup><sup class="reference"><a id="cite_ref-8" href="#cite_note-8"><span class="cite-accessibility-label">Footnote </span>[8]</a></sup></p>
+    </div>
+
+    <h2 lang="la">Lorem ipsum dolor sit amet</h2>
+
+    <p lang="la">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur enim vitae erat gravida commodo. Aliquam in mollis urna. Fusce at mauris nec sem tempor tristique. Maecenas interdum volutpat dui eget feugiat. Nullam egestas finibus tellus, nec convallis magna aliquam vitae. Morbi sollicitudin non tortor at ornare. Phasellus velit ex, suscipit id pellentesque sit amet, dictum at augue. Vivamus eu magna iaculis leo scelerisque suscipit. Morbi convallis tincidunt feugiat. Donec at leo porta, placerat lectus et, condimentum ipsum. Proin a blandit tortor, eu vehicula elit. In mollis ullamcorper neque, in varius est ullamcorper nec. Nam neque risus, tristique a tellus vel, laoreet mattis massa. Aliquam eleifend ipsum erat, sed sodales lectus luctus et.</p>
+
+    <h2 lang="la">Consectetur adipiscing elit</h2>
+
+    <p lang="la">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur enim vitae erat gravida commodo. Aliquam in mollis urna. Fusce at mauris nec sem tempor tristique. Maecenas interdum volutpat dui eget feugiat. Nullam egestas finibus tellus, nec convallis magna aliquam vitae. Morbi sollicitudin non tortor at ornare. Phasellus velit ex, suscipit id pellentesque sit amet, dictum at augue. Vivamus eu magna iaculis leo scelerisque suscipit. Morbi convallis tincidunt feugiat. Donec at leo porta, placerat lectus et, condimentum ipsum. Proin a blandit tortor, eu vehicula elit. In mollis ullamcorper neque, in varius est ullamcorper nec. Nam neque risus, tristique a tellus vel, laoreet mattis massa. Aliquam eleifend ipsum erat, sed sodales lectus luctus et.</p>
+
+    <h2 lang="la">Nulla consectetur enim vitae erat</h2>
+
+    <p lang="la">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur enim vitae erat gravida commodo. Aliquam in mollis urna. Fusce at mauris nec sem tempor tristique. Maecenas interdum volutpat dui eget feugiat. Nullam egestas finibus tellus, nec convallis magna aliquam vitae. Morbi sollicitudin non tortor at ornare. Phasellus velit ex, suscipit id pellentesque sit amet, dictum at augue. Vivamus eu magna iaculis leo scelerisque suscipit. Morbi convallis tincidunt feugiat. Donec at leo porta, placerat lectus et, condimentum ipsum. Proin a blandit tortor, eu vehicula elit. In mollis ullamcorper neque, in varius est ullamcorper nec. Nam neque risus, tristique a tellus vel, laoreet mattis massa. Aliquam eleifend ipsum erat, sed sodales lectus luctus et.</p>
+
+    <h2 lang="la">Aliquam in mollis urna</h2>
+
+    <p lang="la">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur enim vitae erat gravida commodo. Aliquam in mollis urna. Fusce at mauris nec sem tempor tristique. Maecenas interdum volutpat dui eget feugiat. Nullam egestas finibus tellus, nec convallis magna aliquam vitae. Morbi sollicitudin non tortor at ornare. Phasellus velit ex, suscipit id pellentesque sit amet, dictum at augue. Vivamus eu magna iaculis leo scelerisque suscipit. Morbi convallis tincidunt feugiat. Donec at leo porta, placerat lectus et, condimentum ipsum. Proin a blandit tortor, eu vehicula elit. In mollis ullamcorper neque, in varius est ullamcorper nec. Nam neque risus, tristique a tellus vel, laoreet mattis massa. Aliquam eleifend ipsum erat, sed sodales lectus luctus et.</p>
+
+    <h2 lang="la">Fusce at mauris nec sem tempor tristique</h2>
+
+    <p lang="la">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur enim vitae erat gravida commodo. Aliquam in mollis urna. Fusce at mauris nec sem tempor tristique. Maecenas interdum volutpat dui eget feugiat. Nullam egestas finibus tellus, nec convallis magna aliquam vitae. Morbi sollicitudin non tortor at ornare. Phasellus velit ex, suscipit id pellentesque sit amet, dictum at augue. Vivamus eu magna iaculis leo scelerisque suscipit. Morbi convallis tincidunt feugiat. Donec at leo porta, placerat lectus et, condimentum ipsum. Proin a blandit tortor, eu vehicula elit. In mollis ullamcorper neque, in varius est ullamcorper nec. Nam neque risus, tristique a tellus vel, laoreet mattis massa. Aliquam eleifend ipsum erat, sed sodales lectus luctus et.</p>
+
+    <h2>References</h2>
+    <ul class="references">
+
+        <li class="note">
+            <p><sup><a id="cite_note-Schou-5" href="#cite_ref-Schou_5-0"><span class="cite-accessibility-label">Return to reference </span>[5]</a></sup> <span class="reference-text">Schou, Solvej (December 21, 2012). "Mickey meets 'Star Wars': Walt Disney Co. completes acquisition of Lucasfilm". Entertainment Weekly. Retrieved December 22, 2012.
+            </span></p>
+        </li>
+        <li class="note">
+            <p><sup><a id="cite_note-FOXrights-6" href="#cite_ref-FOXrights_6-0"><span class="cite-accessibility-label">Return to reference </span>[6]</a></sup> Masters, Kim (October 30, 2012). "Tangled Rights Could Tie Up Ultimate 'Star Wars' Box Set (Analysis)". The Hollywood Reporter. Retrieved November 12, 2012.</p>
+        </li>
+        <li class="note">
+            <p><sup><a id="cite_note-DisneyFY13-7" href="#cite_ref-DisneyFY13_7-1"><span class="cite-accessibility-label">Return to reference </span>[7]</a></sup> The Walt Disney Company FY 2013 SEC Form 10-K Filing" (PDF). The Walt Disney Company. November 20, 2013. p.&nbsp;13. Retrieved April 17, 2015. Prior to the Company’s acquisition, Lucasfilm produced six Star Wars films (Episodes 1 through 6). Lucasfilm retained the rights to consumer products related to all of the films and the rights related to television and electronic distribution formats for all of the films, with the exception of the rights for Episode 4, which are owned by a third-party studio. All of the films are distributed by a third-party studio in the theatrical and home video markets. The theatrical and home video distribution rights for these films revert to Lucasfilm in May 2020 with the exception of Episode 4, for which these distribution rights are retained in perpetuity by the third-party studio.</p>
+        </li>
+        <li class="note">
+            <p><sup><a id="cite_note-8" href="#cite_ref-8"><span class="cite-accessibility-label">Return to reference </span>[8]</a></sup> Vlessing, Etan (April 6, 2015). "'Star Wars' Movie Franchise Headed to Digital HD". The Hollywood Reporter. Retrieved April 7, 2015.</p>
+        </li>
+    </ul>
+
+    <h2>Sample Page Footer Content</h2>
+
+    <p>Navigation links</p>
+    <p>Social icons</p>
+    <p>Copyright info</p>
+
+</body>
+
+</html>

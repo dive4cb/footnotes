@@ -4,8 +4,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accessible Footnote Solution: Many-to-one Footnote References</title>
+    <title>Accessible Footnote Proof of Concept: Mobile Footnote References</title>
     <style>
+    
+        html.hideOverflow,
+        body.hideOverflow {
+            overflow: hidden;
+        }
+        body {
+            padding: 0;
+            margin: 0 1em;
+        }
+        
         .cite-accessibility-label {
             border: 0 none !important;
             clip: rect(1px, 1px, 1px, 1px);
@@ -33,34 +43,99 @@
         
         a:active,
         a:hover,
-        a:focus {
+        a:focus,
+        h2[tabindex]:focus,
+        button:focus {
             outline: 3px solid #f1ca00;
+        }
+        
+        #modalFootnote {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background: #fff;
+            padding: 1em;
+            border: solid #000 thin;
+            overflow-x: auto;
+        }
+        
+        #modalFootnote h2 {
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+        }
+        
+        div.notThere {
+            display: none;
+        }
+        
+        div.there {
+            display: block;
+        }
+        
+        div#coverAll {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #000;
+            opacity: 0.4;
+            filter: alpha(opacity=40);
+        }
+        
+        main.nopointer {
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        #closeButton {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        
+
+        
+        .cb {
+            margin: 1em;
+        }
+        
+        #modalContent {
+            padding: 1em;
+        }
+        
+        #modalContent span {
+            display: block;
+            margin: 1em 0;
         }
     </style>
 </head>
 
 <body>
-    <h1>Accessible Footnote Solution: Many-to-one Footnote References</h1>
+    <main role="main">
+        <h1>Accessible Footnote Proof of Concept: Mobile Footnote References (Only Test with Mobile Device)</h1>
+        
+     <h2>Introduction</h2>
     
-    <h2>Introduction</h2>
-    
-    <p>The purpose of this page is to demonstrate an accessible solution for footnote references that have a many-to-one correlation between the footnote references in the page content and the footnote itself. This concept can be applied to footnotes that are at the bottom of a page, within a page or in a modal dialog.</p>
+        <p>The purpose of this page is to enhance the one-to-one and many-to-one accessible footnote soltuions by providing a modal dialog that contains the footnote information for mobile platforms (phone or tablet). This modal overlay has the advantage of not causing the viewport to scroll all the way down a potentially very long page and then back up. <em>This example is a Proof of Concept and is NOT approved for use at State Farm at this time.</em></p>
     
     <h3>Accessibility Features:</h3>
     
     <ul>
-        <li><b>Programmatic connection between the footnote reference and the footnote:</b> Selecting, via mouse or keyboard, a footnote reference in the content will move focus to the footnote number at the beginning of the footnote. Selecting the footnote number will return focus to the footnote reference in the content. This example employs JavaScript to keep track of which reference the user came from.</li>
+        <li><b>Programmatic connection between the footnote reference and the footnote:</b> The programmatic connection present in the desktop view is unchanged. However, in a mobile view,  a modal overlay is added to display the footnote content instead of moving the focus down to the bottom of the page and then back up. When the modal is closed, focus returns to the footnote reference in the content.</li>
         <li><b>Screen reader context:</b> CSS is used to add additional content to each link for screen reader users. The footnote reference link is prepended with the word "Footnote". The footnote number link is prepended with the phrase "Return to reference".</li>
     </ul>
     
     <p>Concept insprired by Wikipedia with accessibility added.</p>
     
-    <h2>Accessible Footnote Demonstration</h2>
-
-    <div id="para">
-    <p>In 2012, The Walt Disney Company<sup class="reference"><a class="singleFoot footnote2" id="cite_ref-FOXrights_6-0" href="#cite_note-FOXrights-6">[6]</a></sup> acquired Lucasfilm for $4.06 billion and announced three new Star Wars films; the first film of that trilogy, Star Wars: The Force Awakens, was released on December 18, 2015.<sup class="reference"><a class="singleFoot footnote1" id="cite_ref-Schou_5-0" href="#cite_note-Schou-5">[5]</a></sup> 20th Century Fox retains the physical distribution rights to the first two Star Wars trilogies, owning permanent rights for the original 1977 film<sup class="reference"><a class="singleFoot footnote2" id="cite_ref-FOXrights_6-1" href="#cite_note-FOXrights-6">[6]</a></sup> and holding the rights to Episodes I–III, V and VI until May 2020.<sup class="reference"><a class="singleFoot footnote1" id="cite_ref-Schou_5-1" href="#cite_note-Schou-5">[5]</a></sup> The Walt Disney Studios<sup class="reference"><a class="singleFoot footnote2" id="cite_ref-FOXrights_6-2" href="#cite_note-FOXrights-6">[6]</a></sup> owns digital distribution rights to all the Star Wars films, excluding A New Hope.<sup class="reference"><a class="singleFoot footnote1" id="cite_ref-Schou_5-2" href="#cite_note-Schou-5">[5]</a></sup></p>
-    </div>
-    
+    <h2>Accessible Footnote Demonstration</h2>   
+        
+        <div id="para">
+            <p>In 2012, The Walt Disney Company<sup class="reference"><a class="singleFoot footnote2" id="cite_ref-FOXrights_6-0" href="#cite_note-FOXrights-6">[6]</a></sup> acquired Lucasfilm for $4.06 billion and announced three new Star Wars films; the first film of that trilogy, Star Wars: The Force Awakens, was released on December 18, 2015.<sup class="reference"><a class="singleFoot footnote1" id="cite_ref-Schou_5-0" href="#cite_note-Schou-5">[5]</a></sup> 20th Century Fox retains the physical distribution rights to the first two Star Wars trilogies, owning permanent rights for the original 1977 film<sup class="reference"><a class="singleFoot footnote2" id="cite_ref-FOXrights_6-1" href="#cite_note-FOXrights-6">[6]</a></sup> and holding the rights to Episodes I–III, V and VI until May 2020.<sup class="reference"><a class="singleFoot footnote1" id="cite_ref-Schou_5-1" href="#cite_note-Schou-5">[5]</a></sup> The Walt Disney Studios<sup class="reference"><a class="singleFoot footnote2" id="cite_ref-FOXrights_6-2" href="#cite_note-FOXrights-6">[6]</a></sup> owns digital distribution rights to all the Star Wars films, excluding A New Hope.<sup class="reference"><a class="singleFoot footnote1" id="cite_ref-Schou_5-2" href="#cite_note-Schou-5">[5]</a></sup></p>
+            <p>Gosh darn really really long disclaimer.<sup class="reference"><a class="singleFoot footnote3" id="long_disclaimer" href="#ref_long_disclaimer">[7]</a></sup></p>
+        </div>
+        
     <h3 lang="la">Lorem ipsum dolor sit amet</h3>
     
     <p lang="la">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur enim vitae erat gravida commodo. Aliquam in mollis urna. Fusce at mauris nec sem tempor tristique. Maecenas interdum volutpat dui eget feugiat. Nullam egestas finibus tellus, nec convallis magna aliquam vitae. Morbi sollicitudin non tortor at ornare. Phasellus velit ex, suscipit id pellentesque sit amet, dictum at augue. Vivamus eu magna iaculis leo scelerisque suscipit. Morbi convallis tincidunt feugiat. Donec at leo porta, placerat lectus et, condimentum ipsum. Proin a blandit tortor, eu vehicula elit. In mollis ullamcorper neque, in varius est ullamcorper nec. Nam neque risus, tristique a tellus vel, laoreet mattis massa. Aliquam eleifend ipsum erat, sed sodales lectus luctus et.</p>
@@ -81,38 +156,62 @@
     
     <p lang="la">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur enim vitae erat gravida commodo. Aliquam in mollis urna. Fusce at mauris nec sem tempor tristique. Maecenas interdum volutpat dui eget feugiat. Nullam egestas finibus tellus, nec convallis magna aliquam vitae. Morbi sollicitudin non tortor at ornare. Phasellus velit ex, suscipit id pellentesque sit amet, dictum at augue. Vivamus eu magna iaculis leo scelerisque suscipit. Morbi convallis tincidunt feugiat. Donec at leo porta, placerat lectus et, condimentum ipsum. Proin a blandit tortor, eu vehicula elit. In mollis ullamcorper neque, in varius est ullamcorper nec. Nam neque risus, tristique a tellus vel, laoreet mattis massa. Aliquam eleifend ipsum erat, sed sodales lectus luctus et.</p>
 
-    <h3>References</h3>
-    <ul class="references">
-        <li class="note">
-            <p><sup><a class="trueFoot footnote1" id="cite_note-Schou-5" href="#cite_ref-Schou_5-0"><span class="cite-accessibility-label">Return to reference </span>[5]</a></sup> <span class="reference-text">Schou, Solvej (December 21, 2012). "Mickey meets 'Star Wars': Walt Disney Co. completes acquisition of Lucasfilm". Entertainment Weekly. Retrieved December 22, 2012.
+        <h3>References</h3>
+        <ul class="references">
+            <li class="note">
+                <p><sup><a class="trueFoot footnote1" id="cite_note-Schou-5" href="#cite_ref-Schou_5-0"><span class="cite-accessibility-label">Return to reference </span>[5]</a></sup> <span class="reference-text">Schou, Solvej (December 21, 2012). "Mickey meets 'Star Wars': Walt Disney Co. completes acquisition of Lucasfilm". Entertainment Weekly. Retrieved December 22, 2012.
             </span></p>
-        </li>
+            </li>
 
-        <li class="note">
-            <p><sup><a class="trueFoot footnote2" id="cite_note-FOXrights-6" href="#cite_ref-FOXrights_6-0"><span class="cite-accessibility-label">Return to reference </span>[6]</a></sup> Masters, Kim (October 30, 2012). "Tangled Rights Could Tie Up Ultimate 'Star Wars' Box Set (Analysis)". The Hollywood Reporter. Retrieved November 12, 2012.</p>
-        </li>
-    </ul>
+            <li class="note">
+                <p><sup><a class="trueFoot footnote2" id="cite_note-FOXrights-6" href="#cite_ref-FOXrights_6-0"><span class="cite-accessibility-label">Return to reference </span>[6]</a></sup> <span class="reference-text">Masters, Kim (October 30, 2012). "Tangled Rights Could Tie Up Ultimate 'Star Wars' Box Set (Analysis)". The Hollywood Reporter. <a href="http://deque.com">Retrieved</a> November 12, 2012.</span></p>
+            </li>
+
+            <li class="note">
+                <p><sup><a class="trueFoot footnote3" id="ref_long_disclaimer" href="#long_disclaimer"><span class="cite-accessibility-label">Return to reference </span>[7]</a></sup> <span class="reference-text"><span>        
+            The appearance of external links on this World Wide Web site does not constitute endorsement by the Department of Commerce/National Oceanic and Atmospheric <a href="http://deque.com">Administration</a> of external Web sites or the information, products or services contained therein. For other than authorized activities, the Department of Commerce/NOAA does not exercise any editorial control over the information you may find at these locations. These links are provided consistent with the stated purpose of this Department of Commerce/NOAA Web site.
+            </span>
+                    <span>        
+            The appearance of external links on this World Wide Web site does not constitute endorsement by the Department of Commerce/National Oceanic and Atmospheric <a href="http://deque.com">Administration</a> of external Web sites or the information, products or services contained therein. For other than authorized activities, the Department of Commerce/NOAA does not exercise any editorial control over the information you may find at these locations. These links are provided consistent with the stated purpose of this Department of Commerce/NOAA Web site.
+            </span>
+                    <span>        
+            The appearance of external links on this World Wide Web site does not constitute endorsement by the Department of Commerce/National Oceanic and Atmospheric Administration of external Web sites or the information, products or services contained therein. For other than authorized activities, the Department of Commerce/NOAA does not exercise any editorial control over the information you may find at these <a href="http://deque.com">locations</a>. These links are provided consistent with the stated purpose of this Department of Commerce/NOAA Web site.
+            </span>
+                    <span>        
+            The appearance of external links on this World Wide Web site does not constitute endorsement by the Department of Commerce/National Oceanic and Atmospheric Administration of external Web sites or the information, products or services contained therein. For other than authorized activities, the Department of Commerce/NOAA does not exercise any editorial control over the information you may find at these locations. These links are <a href="http://deque.com">provided consistent</a> with the stated purpose of this Department of Commerce/NOAA Web site.
+            </span>
+                    <span>        
+            The appearance of external links on this World Wide Web site does not constitute endorsement by the Department of Commerce/National Oceanic and Atmospheric <a href="http://deque.com">Administration</a> of external Web sites or the information, products or services contained therein. For other than authorized activities, the Department of Commerce/NOAA does not exercise any editorial control over the information you may find at these locations. These links are provided consistent with the stated purpose of this Department of Commerce/NOAA Web site.
+            </span>
+                    <span>        
+            The appearance of external links on this World Wide Web site does not constitute endorsement by the Department of Commerce/National Oceanic and Atmospheric <a href="http://deque.com">Administration</a> of external Web sites or the information, products or services contained therein. For other than authorized activities, the Department of Commerce/NOAA does not exercise any editorial control over the information you may find at these locations. These links are provided consistent with the stated purpose of this Department of Commerce/NOAA Web site. Test end.
+            </span>
+                    </span>
+                </p>
+            </li>
+
+        </ul>
 
     <h3>Sample Page Footer Content</h3>
 
     <p>Navigation links</p>
     <p>Soical icons</p>
     <p>Copyright info</p>
-   
+           
+        
+    </main>
+    <div id="coverAll" class="notThere">
+    </div>
+    <div id="modalFootnote" class="notThere" style="height: 0">
+        <button id="closeButton" class="cb">Close Dialog</button>
+        <div id="modalContent">
+        </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="footnotesfunction.js"></script>
-    <!--
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("sup.reference a").click(function () {
-                var n = $(this).attr("id");
-                var p = "#" + n;
-                $("a#cite_note-Schou-5").attr("href", p);
-            });
-        });
-    </script>
--->
+    <script src="footnotesfunctionMobile.js"></script>
+
+
 </body>
 
 </html>
