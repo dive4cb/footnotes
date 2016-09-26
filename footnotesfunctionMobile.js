@@ -50,6 +50,14 @@ function addReferenceBackToFoot($this) {
         });
         $(this).unbind();
     });
+
+    $("#coverAll").click(function () {
+        $("#modalFootnote button.cb").trigger("click");
+
+    });
+
+
+
     var $modal = $('#modalFootnote');
     $modal.on('keydown', function (e) {
         var $cancel = $modal.find('a[href], area[href], input, select, textarea, button, iframe, object, embed, *[tabindex], *[contenteditable]').not('[tabindex=-1], [disabled], :hidden').first();
