@@ -46,8 +46,9 @@ function addReferenceBackToFoot($this) {
             $("#modalFootnote").attr("class", "notThere");
             $("#coverAll").attr("class", "notThere");
             $("main").removeClass("nopointer");
-            $(newRefID).focus();
+            
         });
+        $(newRefID).focus();
         $(this).unbind();
     });
 
