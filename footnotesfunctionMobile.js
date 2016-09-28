@@ -51,10 +51,10 @@ function addReferenceBackToFoot($this) {
         $(this).unbind();
     });
 
-    $("#coverAll").click(function () {
-        $("#modalFootnote button.cb").trigger("click");
-
-    });
+//    $("#coverAll").click(function () {
+//        $("#modalFootnote button.cb").trigger("click");
+//
+//    });
 
 
 
