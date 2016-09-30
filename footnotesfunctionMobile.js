@@ -8,7 +8,7 @@ $(document).ready(function (event) {
 
     $(".singleFoot").on("click", function (event) {
         addReferenceBackToFoot($(this));
-        $("main").addClass("fixedit");
+        $("#para").addClass("fixedit");
         $("#modalFootnote").animate({
             height: "20%",
         }, 1000, function () {
@@ -49,7 +49,7 @@ function addReferenceBackToFoot($this) {
             $("#coverAll").attr("class", "notThere");
             $("main").removeClass("nopointer");
             $(newRefID).focus();
-            $("main").removeClass("fixedit");
+            $("#para").removeClass("fixedit");
 //        });
         $(this).unbind();
     });
