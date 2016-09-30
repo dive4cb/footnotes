@@ -8,6 +8,7 @@ $(document).ready(function (event) {
 
     $(".singleFoot").on("click", function (event) {
         addReferenceBackToFoot($(this));
+        $("main").addClass("fixedit");
         $("#modalFootnote").animate({
             height: "20%",
         }, 1000, function () {
