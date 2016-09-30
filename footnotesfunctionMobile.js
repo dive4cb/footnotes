@@ -37,9 +37,10 @@ function addReferenceBackToFoot($this) {
     $("#modalFootnote div#modalContent").html(newHTML);
     $("#modalFootnote").prepend("<h2 id='footnoteH2' tabindex='-1'>" + newFootNum + " Footnote</h2>");
     $("#modalFootnote button.cb").click(function () {
-        $("#modalFootnote").animate({
-            height: "0",
-        }, 1000, function () {
+//        $("#modalFootnote").animate({
+//            height: "0",
+//        }, 1000, function () 
+//                                    {
             $("html, body").removeAttr("class");
             $("main").removeAttr("aria-hidden");
             $("#modalFootnote h2").remove();
@@ -47,7 +48,7 @@ function addReferenceBackToFoot($this) {
             $("#coverAll").attr("class", "notThere");
             $("main").removeClass("nopointer");
             $(newRefID).focus();
-        });
+//        });
         $(this).unbind();
     });
 
