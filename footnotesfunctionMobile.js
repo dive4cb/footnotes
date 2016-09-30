@@ -48,10 +48,11 @@ function addReferenceBackToFoot($this) {
             $("#modalFootnote").attr("class", "notThere");
             $("#coverAll").attr("class", "notThere");
             $("main").removeClass("nopointer");
-            $(newRefID).focus();
+
          //   $("html").removeClass("fixedit");
 //        });
         $(this).unbind();
+                    $(newRefID).focus();
     });
 
     $("#coverAll").click(function () {
