@@ -49,6 +49,7 @@ function addReferenceBackToFoot($this) {
             $("#coverAll").attr("class", "notThere");
             $("main").removeClass("nopointer");
             $(newRefID).focus();
+            $("main").removeClass("fixedit");
 //        });
         $(this).unbind();
     });
